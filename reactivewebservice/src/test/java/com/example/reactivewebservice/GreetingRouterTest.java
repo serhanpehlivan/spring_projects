@@ -20,11 +20,9 @@ public class GreetingRouterTest {
     @Test
     public void testHello() {
         webTestClient
-                // Create a GET request to test an endpoint
                 .get().uri("/hello")
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
-                // and use the dedicated DSL to test assertions against the response
                 .expectStatus().isOk()
                 .expectBody(Greeting.class).value(greeting -> {
                     assertThat(greeting.getMessage()).isEqualTo("Hello, Spring!");
